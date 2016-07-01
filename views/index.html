@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 6 Assessment</title>
+    <script src="vendors/angular.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+  </head>
+  <body>
+    <h2>Department of Super Hero Census</h2>
+    <div class="container=" ng-controller="deptOfHeroes">
+
+      <input type="text" id="heroAlias" ng-model="aliasInput" placeholder=" Alias of Hero "><br>
+      <input type="text" id="firstName" ng-model="firstNameInput" placeholder=" First Name of Hero "><br>
+      <input type="text" id="lastName" ng-model="lastNameInput" placeholder=" Last Name of Hero "><br>
+      <input type="text" id="heroCity" ng-model="cityInput" placeholder=" City of Hero" ><br>
+      <select ng-model="powerTypeInput" ng-options="power for power in powerTypes">
+        <option value=''> -- Super Power Type -- </option>
+      </select><br><br>
+
+      <button ng-click="addHero()"> - Add New Hero -</button><br>
+      <button ng-click="displayHeroes()"> - Show Heroes - </button><br><br>
+
+      <div ng-repeat="heroes in showHeroes">
+        <div> ALIAS: {{heroes.hero_alias }} NAME: {{heroes.hero_firstName }} {{heroes.hero_lastName }} LOCATION: {{heroes.hero_city }} POWER: {{heroes.hero_power }}</div>
+          <button ng-click="deleteHero($index)"> - Delete Hero - </button><br><br>
+      </div> <!-- end ng-repeat div -->
+
+    </div> <!-- end div container -->
+  </body>
+</html>
